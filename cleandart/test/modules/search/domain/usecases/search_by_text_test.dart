@@ -1,4 +1,5 @@
 import 'package:cleandart/modules/search/domain/entities/result_search.dart';
+import 'package:cleandart/modules/search/domain/errors/errors.dart';
 import 'package:cleandart/modules/search/domain/repositories/search_repository.dart';
 import 'package:cleandart/modules/search/domain/usecases/search_by_text.dart';
 import 'package:dartz/dartz.dart';
@@ -17,5 +18,17 @@ main() {
 
     final result = await usecase('Elias');
     expect(result | null, isA<List<ResultSearch>>());
+  });
+
+  test('Deve retornar um InvalidtextError caso o texto seja inválido',
+      () async {
+    when(repository.search(any))
+        .thenAnswer((_) async => Right(<ResultSearch>[]));
+
+    var result = await usecase(null);
+    expect(result.fold(id, id), isA<InvalidTextError>());
+
+    result = await usecase("");
+    expect(result.isLeft(), true);
   });
 }
