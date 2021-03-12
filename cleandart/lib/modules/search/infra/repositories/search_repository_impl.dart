@@ -1,7 +1,7 @@
-import 'package:cleandart/modules/infra/datasources/search_datasource.dart';
 import 'package:cleandart/modules/search/domain/errors/errors.dart';
 import 'package:cleandart/modules/search/domain/entities/result_search.dart';
 import 'package:cleandart/modules/search/domain/repositories/search_repository.dart';
+import 'package:cleandart/modules/search/infra/datasources/search_datasource.dart';
 import 'package:dartz/dartz.dart';
 
 class SearchRepositoryImpl implements SearchRepository {

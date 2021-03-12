@@ -1,8 +1,8 @@
-import 'package:cleandart/modules/infra/datasources/search_datasource.dart';
-import 'package:cleandart/modules/infra/models/result_search_model.dart';
-import 'package:cleandart/modules/infra/repositories/search_repository_impl.dart';
 import 'package:cleandart/modules/search/domain/entities/result_search.dart';
 import 'package:cleandart/modules/search/domain/errors/errors.dart';
+import 'package:cleandart/modules/search/infra/datasources/search_datasource.dart';
+import 'package:cleandart/modules/search/infra/models/result_search_model.dart';
+import 'package:cleandart/modules/search/infra/repositories/search_repository_impl.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
