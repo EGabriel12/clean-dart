@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:git_hub_search/core/inject/inject.dart';
 
 void main() {
+  Inject.init();
   runApp(const MyApp());
 }
 
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Github Search',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
