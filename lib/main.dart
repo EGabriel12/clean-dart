@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:git_hub_search/core/inject/inject.dart';
+import 'package:git_hub_search/modules/search/presenter/search/search_page.dart';
 
 void main() {
   Inject.init();
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: const SearchPage(),
     );
   }
 }

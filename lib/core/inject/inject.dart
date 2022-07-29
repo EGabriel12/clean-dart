@@ -5,20 +5,26 @@ import 'package:git_hub_search/modules/search/domain/usecases/search_by_text_use
 import 'package:git_hub_search/modules/search/external/datasources/github_datasource.dart';
 import 'package:git_hub_search/modules/search/infra/datasources/search_datasource.dart';
 import 'package:git_hub_search/modules/search/infra/repositories/search_repository_imp.dart';
+import 'package:git_hub_search/modules/search/presenter/search/search_bloc.dart';
 
 class Inject {
-  static void init(){
+  static void init() {
     GetIt getIt = GetIt.instance;
 
     // datasources
     getIt.registerLazySingleton<Dio>(() => Dio());
-    getIt.registerLazySingleton<SearchDatasource>(() => GithubDatasource(getIt()));
+    getIt.registerLazySingleton<SearchDatasource>(
+        () => GithubDatasource(getIt()));
 
     // repositories
-    getIt.registerLazySingleton<SearchRepository>(() => SearchRepositoryImp(getIt()));
+    getIt.registerLazySingleton<SearchRepository>(
+        () => SearchRepositoryImp(getIt()));
 
     // usecases
-    getIt.registerLazySingleton<SearchByTextUseCase>(() => SearchByTextUseCaseImp(repository: getIt()));
+    getIt.registerLazySingleton<SearchByTextUseCase>(
+        () => SearchByTextUseCaseImp(repository: getIt()));
 
+    // controllers
+    getIt.registerFactory<SearchBloc>(() => SearchBloc(getIt()));
   }
 }
